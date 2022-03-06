@@ -14,6 +14,14 @@ config/name="Prima Materia"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=650
+window/size/height=384
+window/size/resizable=false
+window/size/always_on_top=true
+window/stretch/aspect="keep"
+
 [input]
 
 move_left={

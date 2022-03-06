@@ -5,6 +5,8 @@ public class Player : KinematicBody2D
 {
 	[Export]
 	public int moveSpeed = 250;
+	public Animation _animation = 
+
 	public override void _PhysicsProcess(float delta)
 	{
 		Vector2 vel = new Vector2();
@@ -12,5 +14,7 @@ public class Player : KinematicBody2D
 		vel.y = Input.GetActionStrength("move_down") - Input.GetActionStrength("move_up");
 
 		MoveAndCollide(vel.Normalized() * moveSpeed * delta);
+
+		
 	}
 }
