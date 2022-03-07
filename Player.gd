@@ -16,6 +16,9 @@ func _process(delta:float) -> void:
 
 	get_input()
 	velocity = move_and_slide(velocity)
+	
+	if velocity == Vector2.ZERO:
+		sprite.play("idle")
 
 
 func get_input():
@@ -31,7 +34,7 @@ func get_input():
 		##sprite.play("move_down")
 	if Input.is_action_pressed('move_up'):
 		velocity.y -= 1
-		##sprite.play("move_up")
+		sprite.play("move_up")
 	velocity = velocity.normalized() * Speed
 
 

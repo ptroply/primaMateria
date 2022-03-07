@@ -105,7 +105,7 @@ animations = [ {
 extents = Vector2( 8, 8 )
 
 [sub_resource type="CircleShape2D" id=26]
-radius = 82.0381
+radius = 109.01
 
 [node name="Monster" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
@@ -114,7 +114,7 @@ Bullet = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 24 )
-frame = 8
+frame = 16
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
