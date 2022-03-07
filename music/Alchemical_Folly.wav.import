@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Alchemical_Folly.wav-024d3a7f8e870c0a791135defe624f70.sample"
+
+[deps]
+
+source_file="res://music/Alchemical_Folly.wav"
+dest_files=[ "res://.import/Alchemical_Folly.wav-024d3a7f8e870c0a791135defe624f70.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
