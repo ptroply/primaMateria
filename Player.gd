@@ -17,6 +17,7 @@ func _process(delta:float) -> void:
 	get_input()
 	velocity = move_and_slide(velocity)
 	
+	
 	if velocity == Vector2.ZERO:
 		sprite.play("idle")
 
