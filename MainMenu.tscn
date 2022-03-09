@@ -1,16 +1,13 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/fonts/Mystery Font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/title-orb2.png" type="Texture" id=2]
 [ext_resource path="res://MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://crawl.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFontData" id=2]
-resource_local_to_scene = true
-font_path = "res://assets/fonts/Mystery Font.ttf"
-
-[sub_resource type="DynamicFont" id=3]
-size = 8
-font_data = SubResource( 2 )
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
 
 [sub_resource type="AtlasTexture" id=31]
 flags = 4
@@ -142,89 +139,63 @@ animations = [ {
 "frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ) ],
 "loop": true,
 "name": "default",
-"speed": 8.0
+"speed": 6.0
 } ]
 
-[sub_resource type="DynamicFont" id=1]
-size = 19
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=4]
+size = 21
 extra_spacing_space = 5
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=56]
+size = 12
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+resource_local_to_scene = true
+font_path = "res://assets/fonts/Mystery Font.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 14
+extra_spacing_char = -1
+extra_spacing_space = 5
+font_data = SubResource( 2 )
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="loopTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+__meta__ = {
+"_editor_description_": "start screen loop"
+}
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -300.0
-margin_top = -200.0
-margin_right = 300.0
-margin_bottom = 200.0
+margin_left = -30.0
+margin_top = -375.0
+margin_right = 570.0
+margin_bottom = 25.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="crawl" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -270.0
-margin_top = 200.0
-margin_right = 95.0
-margin_bottom = 472.0
-rect_scale = Vector2( 1.5, 1.5 )
-custom_fonts/font = SubResource( 3 )
-text = "The truth, certainty, without untruth. What is above is like what is below. What is below is like what is above.
-
-
-The miracle of unity is to be attained. Everything is formed from the source, and all things come about from the same source. Its parents are the Sun and Moon. It was borne by the wind and nurtured by the Earth. Every wonder is from it and its power is complete. 
-
-
-Throw it upon earth, and earth will separate from fire with diligence. Through wisdom it rises. Then it descends, combining the power of the upper and the lower. Thus you will have the illumination of all the world, and darkness will disappear.
-
-
-This is the power of all strength. This was the means of the creation of the world, and in the future wonderful developments will be made.
-
-I am the Philosopher, Hermes the Threefold Sage.
-
-Thus ends the revelation of the work of the Sun."
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Camera2D" type="Camera2D" parent="."]
-modulate = Color( 0.694118, 0.733333, 0.352941, 1 )
+[node name="Camera2D" type="Camera2D" parent="ColorRect"]
+position = Vector2( 302, 200 )
 current = true
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-self_modulate = Color( 0.984314, 1, 0.807843, 1 )
-position = Vector2( 0, 56 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 30 )
-frame = 10
-playing = true
+[node name="StartScreen" type="Node2D" parent="ColorRect"]
+visible = false
+position = Vector2( 29, 373 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -108.0
-margin_top = -113.0
-margin_right = 115.0
-margin_bottom = -18.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="title" type="Label" parent="VBoxContainer"]
-margin_right = 223.0
-margin_bottom = 43.0
+[node name="title" type="Label" parent="ColorRect/StartScreen"]
+margin_left = -6.0
+margin_top = -298.0
+margin_right = 544.0
+margin_bottom = -193.0
 custom_fonts/font = SubResource( 1 )
 text = "Prima Materia
 "
@@ -234,34 +205,53 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartBtn" type="Button" parent="VBoxContainer"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ColorRect/StartScreen"]
+self_modulate = Color( 0.984314, 1, 0.807843, 1 )
+position = Vector2( 271, -173 )
+scale = Vector2( 2.4, 2.4 )
+frames = SubResource( 30 )
+frame = 2
+playing = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/StartScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 155.0
+margin_top = -75.0
+margin_right = 378.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartBtn" type="Button" parent="ColorRect/StartScreen/VBoxContainer"]
 self_modulate = Color( 1, 0.988235, 0.784314, 1 )
-margin_top = 47.0
 margin_right = 223.0
-margin_bottom = 69.0
+margin_bottom = 28.0
 custom_fonts/font = SubResource( 4 )
 action_mode = 0
 text = "start game"
 flat = true
 
-[node name="QuitBtn" type="Button" parent="VBoxContainer"]
+[node name="QuitBtn" type="Button" parent="ColorRect/StartScreen/VBoxContainer"]
 self_modulate = Color( 1, 0.988235, 0.784314, 1 )
-margin_top = 73.0
+margin_top = 32.0
 margin_right = 223.0
-margin_bottom = 95.0
+margin_bottom = 60.0
 custom_fonts/font = SubResource( 4 )
 action_mode = 0
 text = "quit"
 flat = true
 
-[node name="version" type="Label" parent="."]
-margin_left = 77.0
-margin_top = 131.0
-margin_right = 370.0
-margin_bottom = 174.0
-rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 1 )
-text = "Version  0.01
+[node name="Label" type="Label" parent="ColorRect/StartScreen"]
+margin_left = 312.0
+margin_top = -52.0
+margin_right = 556.0
+margin_bottom = -17.0
+custom_fonts/font = SubResource( 56 )
+text = "Version  0.02
 MetroidvaniaJam22"
 align = 2
 valign = 2
@@ -269,5 +259,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
+[node name="crawl" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.537
+margin_right = 365.0
+margin_bottom = 507.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 3 )
+text = "As above, so below.
+
+Everything is formed from the source, and all things come about from the same..
+Every wonder is from it and its power is complete. 
+
+Throw it upon earth, and earth will separate from fire. You will illuminate the world..
+This is the All Power - the means of the creation of the world.
+
+I am Hermes the Threefold Sage.
+Thus ends the revelation of the work of the Sun."
+align = 1
+autowrap = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+speed = 16.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="crawl"]
+self_modulate = Color( 0.984314, 1, 0.807843, 1 )
+position = Vector2( 179.333, 410.667 )
+scale = Vector2( 1.7, 1.7 )
+frames = SubResource( 30 )
+frame = 6
+playing = true
+
+[node name="holdTimer" type="Timer" parent="crawl"]
+wait_time = 90.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="loopTimer" to="." method="_on_loopTimer_timeout"]
+[connection signal="pressed" from="ColorRect/StartScreen/VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="ColorRect/StartScreen/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
+[connection signal="timeout" from="crawl/holdTimer" to="crawl" method="_on_holdTimer_timeout"]

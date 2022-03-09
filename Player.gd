@@ -1,21 +1,27 @@
 extends KinematicBody2D
 class_name Player
 
-export (int) var Speed = 100
+signal player_health_changed(new_health)
+signal died
+
+export (int) var speed = 100
 
 var velocity = Vector2.ZERO
 
 onready var sprite = $AnimatedSprite
+onready var health_stat = $Health
 
 func _ready() -> void:
+#	weapon_manager = $WeaponManager
 	pass
 
-func _process(delta:float) -> void:
+func _process(_delta):
 	
 	velocity = Vector2.ZERO
 
 	get_input()
 	velocity = move_and_slide(velocity)
+	
 	
 	if velocity == Vector2.ZERO:
 		sprite.play("idle")
@@ -35,10 +41,21 @@ func get_input():
 	if Input.is_action_pressed('move_up'):
 		velocity.y -= 1
 		sprite.play("move_up")
-	velocity = velocity.normalized() * Speed
+		
+	velocity = velocity.normalized() * speed
 
 
-func _unhandled_input(event: InputEvent) -> void:
-#	if event.is_action_release("shoot"):
-#		monster: shoot()
-	pass
+func handle_hit():
+	print("Player Hit!")
+	
+	health_stat.health -= 20
+	emit_signal("player_health_changed", health_stat.health)
+	if health_stat.health <= 0:
+		die()
+
+
+func die():
+	print("Player Died!")
+	emit_signal("died")
+	queue_free()
+

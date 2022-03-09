@@ -3,7 +3,7 @@ class_name Monster
 
 ##signal died
 
-signal monster_fired_bullet(bullet)
+#signal monster_fired_bullet(bullet)
 
 export (PackedScene) var Bullet
 
@@ -22,11 +22,12 @@ func shoot():
 	if attack_cooldown.is_stopped() and Bullet != null:
 		var bullet_instance = Bullet.instance()
 		add_child(bullet_instance)
-		bullet_instance.direction = global_position.normalized()	
+		bullet_instance.direction = global_position.normalized()
+		print("Monster took a shot!")
+		
 		var player = get_node("/root/Game/Player")
 		var direction_to_player = bullet_instance.global_position.direction_to(player.global_position).normalized()
 		bullet_instance.set_direction(direction_to_player)
+		
 		attack_cooldown.start()
-		print("monster shot")
-	else:
-		print("monster waiting to shoot")
+		print("Cooldown started")
