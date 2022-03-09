@@ -1,7 +1,7 @@
 extends Label
 
 
-export var speed : float = 13.6
+export var speed : float = 14
 
 
 

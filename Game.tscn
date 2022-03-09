@@ -565,4 +565,4 @@ position = Vector2( 553, -352 )
 position = Vector2( -15, -76 )
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
-Speed = 326
+speed = 200

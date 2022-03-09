@@ -21,27 +21,19 @@ var target: KinematicBody2D = null
 func _ready() -> void:
 	set_state(State.PATROL)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta):
 	match current_state:
 		State.PATROL:
 			pass
 		State.ENGAGE:
 			if target != null and monster != null:
 				monster.shoot()
-			else:
-				if target == null:
-					print("engaged with no target")
-				if monster == null:
-					print("null actor engaged")
 
 		State.ADVANCE:
 			pass
 		_:
 			print("error: invalid state")
 			
-
-#func initialize(monster: KinematicBody2D):
-#	self.monster = monster
 
 
 func set_state(new_state: int):

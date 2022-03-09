@@ -114,7 +114,7 @@ Bullet = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 24 )
-frame = 16
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -130,6 +130,7 @@ script = ExtResource( 3 )
 shape = SubResource( 26 )
 
 [node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="body_entered" from="AI/DetectionZone" to="AI" method="_on_DetectionZone_body_entered"]
