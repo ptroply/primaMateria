@@ -23,7 +23,7 @@ func _physics_process(_delta):
 
 
 func set_direction(direction):
-#	self.direction = direction
+	self.direction = direction
 	rotation += direction.angle()
 
 

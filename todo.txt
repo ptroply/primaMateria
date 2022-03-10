@@ -1,0 +1,9 @@
+PrimaMateria todo:
+
+Weapons and Attacking
+Health display
+Game Over
+
+Looping Level Music
+Main Menu: Start on menu
+Camera2D: room-to-room snap

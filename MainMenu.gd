@@ -1,10 +1,11 @@
 extends Node2D
 
-onready var loopTimer = get_node("loopTimer")
+onready var loopTimer = $loopTimer
 onready var CameraNode2D = $ColorRect/Camera2D
 onready var crawl = $crawl
 onready var orb = $crawl/AnimatedSprite
-onready var StartScreen = get_node("ColorRect/StartScreen")
+onready var StartScreen = $StartScreen
+onready var Music = $AudioStreamPlayer
 
 
 func _process(_delta):
@@ -14,9 +15,11 @@ func _process(_delta):
 	if orbPosition.y < CameraNode2D.get_global_position().y or Input.is_action_just_pressed("ui_accept"):
 		StartScreen.visible = true;
 		crawl.visible = false
-		orb.visible = false
-		loopTimer.start()
+		
 
+	if !Music.playing:
+		Music.play()
+		print("music restart")
 
 
 func _on_StartBtn_pressed():
@@ -30,3 +33,9 @@ func _on_QuitBtn_pressed():
 func _on_loopTimer_timeout():
 	print("loop timeout")
 	get_tree().reload_current_scene()
+
+
+func _on_AnimatedSprite_visibility_changed():
+	loopTimer.start()
+	print("looptimer started")
+
