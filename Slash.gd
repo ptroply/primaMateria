@@ -3,18 +3,19 @@ class_name Slash
 
 onready var sprite = $Sprite
 onready var kill_timer = $KillTimer
-onready var direction = Vector2.ZERO
-onready var player = Vector2.ZERO
+onready var click_location = Vector2.ZERO
 
 
 func _ready():
+
 	print("Player Slashed!")
 	set_direction(get_global_mouse_position())
 	kill_timer.start()
 
 
-func set_direction(direction):
-	rotation = direction.angle()
+func set_direction(click_location):
+	rotation = get_angle_to(click_location)
+	
 
 
 func _on_KillTimer_timeout() -> void:
@@ -33,3 +34,4 @@ func _on_Slash_body_entered(body):
 	if body.name == "Monster":
 		body.queue_free()
 		kill_timer.stop()
+		queue_free()

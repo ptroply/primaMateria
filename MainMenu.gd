@@ -16,7 +16,13 @@ func _process(_delta):
 		StartScreen.visible = true;
 		crawl.visible = false
 		
-
+	
+	if StartScreen.visible:
+		$StartScreen/VBoxContainer/StartBtn.grab_focus()
+		if Input.is_action_just_pressed("ui_cancel"):
+			get_tree().quit()
+	
+	
 	if !Music.playing:
 		Music.play()
 		print("music restart")
