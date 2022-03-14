@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Light-Gray16.png-1bae9ac3d8a0dcb935f27b21e07b2efc.stex"
+path="res://.import/Main_left_melee-Sheet.png-91de8b4740ac31c584c81c45c27198d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Light-Gray16.png"
-dest_files=[ "res://.import/Light-Gray16.png-1bae9ac3d8a0dcb935f27b21e07b2efc.stex" ]
+source_file="res://assets/sprites/Main_left_melee-Sheet.png"
+dest_files=[ "res://.import/Main_left_melee-Sheet.png-91de8b4740ac31c584c81c45c27198d8.stex" ]
 
 [params]
 

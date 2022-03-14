@@ -223,7 +223,6 @@ self_modulate = Color( 0.984314, 1, 0.807843, 1 )
 position = Vector2( 179.333, 410.667 )
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 30 )
-frame = 6
 playing = true
 
 [node name="StartScreen" type="Node2D" parent="."]
@@ -249,7 +248,7 @@ self_modulate = Color( 0.984314, 1, 0.807843, 1 )
 position = Vector2( 271, -173 )
 scale = Vector2( 2.4, 2.4 )
 frames = SubResource( 30 )
-frame = 2
+frame = 21
 playing = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StartScreen"]

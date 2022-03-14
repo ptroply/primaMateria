@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Light-Gray16.png-1bae9ac3d8a0dcb935f27b21e07b2efc.stex"
+path="res://.import/swipe-Sheet.png-3aed6df795b5db9d1e56d0f47fbdf5d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Light-Gray16.png"
-dest_files=[ "res://.import/Light-Gray16.png-1bae9ac3d8a0dcb935f27b21e07b2efc.stex" ]
+source_file="res://assets/sprites/swipe-Sheet.png"
+dest_files=[ "res://.import/swipe-Sheet.png-3aed6df795b5db9d1e56d0f47fbdf5d1.stex" ]
 
 [params]
 

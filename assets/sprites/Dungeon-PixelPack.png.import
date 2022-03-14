@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Light-Gray16.png-1bae9ac3d8a0dcb935f27b21e07b2efc.stex"
+path="res://.import/Dungeon-PixelPack.png-9a954e68c0b1da109464ac3fcf8b4468.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Light-Gray16.png"
-dest_files=[ "res://.import/Light-Gray16.png-1bae9ac3d8a0dcb935f27b21e07b2efc.stex" ]
+source_file="res://assets/sprites/Dungeon-PixelPack.png"
+dest_files=[ "res://.import/Dungeon-PixelPack.png-9a954e68c0b1da109464ac3fcf8b4468.stex" ]
 
 [params]
 
