@@ -12,19 +12,17 @@ export (bool) var isMoving
 
 var velocity = Vector2.ZERO
 var look = Position2D
+var isAttacking : bool
 
 onready var sprite = $AnimatedSprite
 onready var health_stat = $Health
-onready var attack_point = $Slash
 onready var attack_cooldown = $AttackCooldown
 
-#onready var walkStep = $SFX/Walk
+onready var walkStep = $SFX/Walk
+onready var spearAttack = $SFX/SpearAttack
 
 
-func _process(_delta):	
-	
-#	if isMoving :
-#		walkStep.play()
+func _process(_delta):
 
 	velocity = Vector2.ZERO
 	get_input()
@@ -33,10 +31,10 @@ func _process(_delta):
 	if velocity == Vector2.ZERO:
 		sprite.play("idle")
 		isMoving = false
-	else:
-		isMoving = true
 		
 	look = get_global_mouse_position()
+	if !attack_cooldown.is_stopped():
+		isAttacking = false
 
 
 func get_input():
@@ -44,30 +42,43 @@ func get_input():
 	if Input.is_action_pressed('move_right'):
 		velocity.x += 1
 		sprite.play("move_right")
+		isMoving = true
 	if Input.is_action_pressed('move_left'):
 		velocity.x -= 1
 		sprite.play("move_left")
+		isMoving = true
 	if Input.is_action_pressed('move_down'):
 		velocity.y += 1
-		##sprite.play("move_down")
+		isMoving = true
+		sprite.play("move_down")
 	if Input.is_action_pressed('move_up'):
 		velocity.y -= 1
 		sprite.play("move_up")
+		isMoving = true
 		
-	if Input.is_action_just_pressed("action"):
+
+## ???
+	if !isMoving:
+		walkStep.play()
+	
+	if Input.is_action_just_pressed("action") and !isAttacking:
+#		print("slash right")
+#		sprite.play("slash-right")
 		slash()
-		print("slash at")
-		print(look)
+
+
 		
 	velocity = velocity.normalized() * speed
 	
 	
 func slash():
 	if attack_cooldown.is_stopped() and Slash != null:
-		print("slash activated")
 		var slash_instance = Slash.instance()
 		add_child(slash_instance)
-#		slash_instance.direction = (attack_point.global_position - global_position).normalized()
+		print("slash at")
+		print(look)
+		spearAttack.play()
+		isAttacking = true
 		attack_cooldown.start()
 
 
@@ -82,8 +93,7 @@ func handle_hit():
 
 func die():
 	print("Player Died!")
-	emit_signal("died")
-	queue_free()
+	get_tree().change_scene("res://GameOver.tscn")
 
 
 

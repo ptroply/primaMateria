@@ -9,8 +9,6 @@ enum State {
 }
 
 
-
-
 onready var player_detection_zone = $DetectionZone
 onready var monster: Monster = self.get_parent()
 

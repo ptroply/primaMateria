@@ -9,8 +9,10 @@ export (PackedScene) var Bullet
 
 onready var ai = $AI
 onready var collision_shape = $CollisionShape2D
-##onready var health_stat = $Health
+onready var sprite = $AnimatedSprite
 onready var attack_cooldown = $AttackCooldown
+onready var death_sfx = $SFX/death
+onready var attack_sfx = $SFX/attack
 
 export (int) var speed = 10
 
@@ -20,6 +22,7 @@ export (int) var speed = 10
 ##func handle_hit():
 func shoot():
 	if attack_cooldown.is_stopped() and Bullet != null:
+		attack_sfx.play()
 		var bullet_instance = Bullet.instance()
 		add_child(bullet_instance)
 		bullet_instance.direction = global_position.normalized()
@@ -31,3 +34,8 @@ func shoot():
 		
 		attack_cooldown.start()
 		print("Cooldown started")
+
+func die():
+	sprite.play("death")
+	death_sfx.play()
+	queue_free()
