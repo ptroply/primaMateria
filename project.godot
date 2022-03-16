@@ -9,10 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Azrael",
+"language": "GDScript",
+"path": "res://Azrael.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "BossMonster",
+"language": "GDScript",
+"path": "res://BossMonster.gd"
+}, {
 "base": "Area2D",
 "class": "Bullet",
 "language": "GDScript",
 "path": "res://Bullet.gd"
+}, {
+"base": "Area2D",
+"class": "Lazer",
+"language": "GDScript",
+"path": "res://Lazer.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Monster",
@@ -35,7 +50,10 @@ _global_script_classes=[ {
 "path": "res://Weapon.gd"
 } ]
 _global_script_class_icons={
+"Azrael": "",
+"BossMonster": "",
 "Bullet": "",
+"Lazer": "",
 "Monster": "",
 "Player": "",
 "Slash": "",

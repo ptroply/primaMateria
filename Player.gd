@@ -13,11 +13,12 @@ export (bool) var isMoving
 var velocity = Vector2.ZERO
 var look = Position2D
 var isAttacking : bool
+var canMove : bool = true
 
 onready var sprite = $AnimatedSprite
 onready var health_stat = $Health
 onready var attack_cooldown = $AttackCooldown
-
+onready var iTimer = $ITimer
 onready var walkStep = $SFX/Walk
 onready var spearAttack = $SFX/SpearAttack
 
@@ -38,23 +39,23 @@ func _process(_delta):
 
 
 func get_input():
-	
-	if Input.is_action_pressed('move_right'):
-		velocity.x += 1
-		sprite.play("move_right")
-		isMoving = true
-	if Input.is_action_pressed('move_left'):
-		velocity.x -= 1
-		sprite.play("move_left")
-		isMoving = true
-	if Input.is_action_pressed('move_down'):
-		velocity.y += 1
-		isMoving = true
-		sprite.play("move_down")
-	if Input.is_action_pressed('move_up'):
-		velocity.y -= 1
-		sprite.play("move_up")
-		isMoving = true
+	if canMove:
+		if Input.is_action_pressed('move_right'):
+			velocity.x += 1
+			sprite.play("move_right")
+			isMoving = true
+		if Input.is_action_pressed('move_left'):
+			velocity.x -= 1
+			sprite.play("move_left")
+			isMoving = true
+		if Input.is_action_pressed('move_down'):
+			velocity.y += 1
+			isMoving = true
+			sprite.play("move_down")
+		if Input.is_action_pressed('move_up'):
+			velocity.y -= 1
+			sprite.play("move_up")
+			isMoving = true
 		
 
 ## ???
@@ -84,9 +85,15 @@ func slash():
 
 func handle_hit():
 	print("Player Hit!")
-	
-	health_stat.health -= 20
+	health_stat.health -= 1
 	emit_signal("player_health_changed", health_stat.health)
+	
+	canMove = false
+	sprite.self_modulate = "af1010"
+	iTimer.start()
+	
+	
+	
 	if health_stat.health <= 0:
 		die()
 
@@ -99,3 +106,13 @@ func die():
 
 func _on_AttackCooldown_timeout():
 	attack_cooldown.stop()
+
+
+func _on_ITimer_timeout():
+	sprite.self_modulate = "ffffff"
+	canMove = true
+
+
+func _on_Area2D2_body_entered(body):
+	if body.name == "Player":
+		get_tree().change_scene("res://Credits.tscn")

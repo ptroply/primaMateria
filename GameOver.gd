@@ -20,4 +20,4 @@ func _on_PlayAgainBtn_button_down():
 
 
 func _on_Credits_button_down():
-	pass # Replace with function body.
+	get_tree().change_scene("res://Credits.tscn")

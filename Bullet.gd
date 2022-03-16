@@ -37,3 +37,4 @@ func _on_Bullet_body_entered(body: Node) -> void:
 		print("Bullet hit something!")
 #		GlobalSignals.emit_signal("bullet_impacted", body.global_position, direction)
 		body.handle_hit()
+		queue_free()

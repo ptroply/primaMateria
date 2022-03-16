@@ -12,7 +12,7 @@ func _process(_delta):
 	
 	var orbPosition = orb.get_global_position()
 	
-	if orbPosition.y < CameraNode2D.get_global_position().y or Input.is_action_just_pressed("ui_accept"):
+	if orbPosition.y < CameraNode2D.get_global_position().y or Input.is_action_just_pressed("action") or Input.is_action_just_pressed("ui_accept"):
 		StartScreen.visible = true;
 		crawl.visible = false
 		
@@ -21,6 +21,8 @@ func _process(_delta):
 		$StartScreen/VBoxContainer/StartBtn.grab_focus()
 		if Input.is_action_just_pressed("ui_cancel"):
 			get_tree().quit()
+#		if Input.is_action_just_pressed("ui_accept"):
+#			get_tree().change_scene("res://Game.tscn")
 	
 	
 	if !Music.playing:

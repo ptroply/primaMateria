@@ -15,9 +15,9 @@ func _ready():
 func _process(_delta):
 	sprite.play("default")
 
+
 func set_direction(click_location):
 	rotation = get_angle_to(click_location)
-	
 
 
 func _on_KillTimer_timeout() -> void:
@@ -34,6 +34,9 @@ func _on_KillTimer_timeout() -> void:
 
 func _on_Slash_body_entered(body):
 	if get_tree().get_nodes_in_group("monster").has(body):
-		body.die()
-		kill_timer.stop()
-		queue_free()
+		if body.has_method("handle_hit"):
+			body.handle_hit()
+		else:
+			body.die()
+#		kill_timer.stop()
+		
