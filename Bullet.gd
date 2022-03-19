@@ -2,7 +2,7 @@ extends Area2D
 class_name Bullet
 
 
-export (int) var speed = 3
+export (int) var speed = 2
 
 onready var sprite = $Sprite
 onready var kill_timer = $KillTimer
@@ -23,7 +23,7 @@ func _physics_process(_delta):
 
 
 func set_direction(direction):
-#	self.direction = direction
+	self.direction = direction
 	rotation += direction.angle()
 
 
@@ -37,3 +37,4 @@ func _on_Bullet_body_entered(body: Node) -> void:
 		print("Bullet hit something!")
 #		GlobalSignals.emit_signal("bullet_impacted", body.global_position, direction)
 		body.handle_hit()
+		queue_free()
