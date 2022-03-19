@@ -12,4 +12,4 @@ func _ready():
 func _process(delta):
 	var position = self.get_global_position()
 	position.y -= speed * delta
-	position = self.set_global_position(position)
+	self.set_global_position(position)
