@@ -1,0 +1,17 @@
+boss attack + and x
+
+hurt on repeated touch
+pause (quit esc)
+
+health pickups
+
+monster death sfx
+player hurt sfx
+
+
+animation tune ups
+---
+diagonal walking animation
+eyeball death animation
+
+
