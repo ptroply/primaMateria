@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rarueh.wav-9cc2c75d3a15cb4af6df34382d2927e5.sample"
+
+[deps]
+
+source_file="res://assets/music/sfx/rarueh.wav"
+dest_files=[ "res://.import/rarueh.wav-9cc2c75d3a15cb4af6df34382d2927e5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

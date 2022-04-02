@@ -208,11 +208,6 @@ animations = [ {
 "name": "slash-right",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ) ],
-"loop": false,
-"name": "slash-left",
-"speed": 8.0
-}, {
 "frames": [ SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ) ],
 "loop": true,
 "name": "move_left",
@@ -221,6 +216,11 @@ animations = [ {
 "frames": [ SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ) ],
 "loop": true,
 "name": "move_down",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "slash-left",
 "speed": 8.0
 }, {
 "frames": [ SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ) ],

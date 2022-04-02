@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wadoww.wav-6c08a5f8095d2a530ee50ee3b33345e9.sample"
+
+[deps]
+
+source_file="res://assets/music/sfx/wadoww.wav"
+dest_files=[ "res://.import/wadoww.wav-6c08a5f8095d2a530ee50ee3b33345e9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
